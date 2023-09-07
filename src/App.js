@@ -1,25 +1,43 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import { useState } from 'react';
 
 function App() {
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [items, setItems] = useState([]);
+  const url = 'https://restcountries.eu/rest/v2/all';
 
-const [error, setError] = useState(null);
-const [isLoaded, setisLoaded] = useState(false);
-const [items, setItems] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        setIsLoaded(true);
+        setItems(result);
+      } catch (error) {
+        setError(error);
+      }
+    };
 
-useEffect(() => {
-  
-  
-}, [])
-
-
-
+    fetchData();
+  }, []);
 
   return (
     <div className="App">
-      
-      
+      {error ? (
+        <div>Error: {error.message}</div>
+      ) : !isLoaded ? (
+        <div>Loading...</div>
+      ) : (
+        <ul>
+          {items.map((item) => (
+            <li key={item.name}>{item.name}</li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
