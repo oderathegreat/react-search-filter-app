@@ -5,7 +5,7 @@ function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
-  const url = 'https://restcountries.eu/rest/v2/all';
+  const url = 'https://restcountries.com/v3.1/all';
 
   useEffect(() => {
     const fetchData = async () => {
