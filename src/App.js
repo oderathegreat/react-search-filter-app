@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import SearchBar from './components/SearchBar';
 import './App.css';
 
 function App() {
@@ -8,7 +9,9 @@ function App() {
     <div className="App">
 <div className="searchbarcontainer">
 
-  <div>Search Bar</div>
+  <SearchBar />
+
+  
 
   <div>Search Bar Result </div>
 </div>

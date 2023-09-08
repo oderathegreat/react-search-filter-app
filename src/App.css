@@ -4,3 +4,13 @@
   height: 100vh;
   width: 100vw;
 }
+
+.searchbarcontainer{
+  padding-top: 20vh;
+  width: 40%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 200px;
+}

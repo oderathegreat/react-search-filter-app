@@ -1,8 +1,16 @@
-import React from 'react'
+import React from 'react';
+import {FaSearch} from "react-icons/fa";
+import "./Searchbar.css";
+
 
 const SearchBar = () => {
   return (
-    <div>
+    <div className='input-wrapper'>
+
+        <FaSearch id="search-icon"/ >
+            <input  placeholder= "Type to search names" />
+
+       
       
     </div>
   )
