@@ -3,7 +3,7 @@ import {FaSearch} from "react-icons/fa";
 import "./Searchbar.css";
 
 
-const SearchBar = () => {
+const SearchBar = ({setResult}) => {
 
   const [input, setInput] = useState("");
 
@@ -13,7 +13,18 @@ const SearchBar = () => {
     fetch("http://jsonplaceholder.typicode.com/users")
       .then( (response)=> response.json())
       .then((json)=>{
-        console.log(json)
+        //console.log(json)
+
+         //variable to store filtered data
+         const results =  json.filter( (user) => {
+
+            return value && user && user.name && user.name.toLowerCase().includes(value)
+
+         });
+
+         setResult(results)
+
+
       })
 
 

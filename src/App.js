@@ -3,13 +3,16 @@ import SearchBar from './components/SearchBar';
 import './App.css';
 
 function App() {
+
+  const [result, setResult] = useState([]);
+
  
 
   return (
     <div className="App">
 <div className="searchbarcontainer">
 
-  <SearchBar />
+  <SearchBar setResult={setResult} />
 
   
 
