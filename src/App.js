@@ -1,23 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
-import searchResultsList from './components/searchResultsList';
+import SearchResultsList from './components/SearchResultsList';
 import './App.css';
 
 function App() {
-
-  const [result, setResult] = useState([]);
-
- 
+  const [results, setResult] = useState([]);
 
   return (
     <div className="App">
-<div className="searchbarcontainer">
-
-  <SearchBar setResult={setResult} />
-
-  <searchResultsList result={result} />
-</div>
-
+      <div className="search-bar-container">
+        <SearchBar setResult={setResult} />
+        {results && results.length > 0 && <SearchResultsList results={results} />}
+      </div>
     </div>
   );
 }
