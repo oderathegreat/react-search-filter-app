@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
+import searchResultsList from './components/searchResultsList';
 import './App.css';
 
 function App() {
@@ -14,9 +15,7 @@ function App() {
 
   <SearchBar setResult={setResult} />
 
-  
-
-  <div>Search Bar Result </div>
+  <searchResultsList result={result} />
 </div>
 
     </div>
